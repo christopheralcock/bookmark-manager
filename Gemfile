@@ -13,6 +13,7 @@ ruby '2.2.2'
 
 group :test do
   gem 'capybara'
+  gem 'factory_girl'
   gem 'rspec'
 
 end

@@ -10,7 +10,7 @@ validates_confirmation_of :password
 
 
   property :id, Serial
-  property :email, String
+  property :email, String, required: true
   # this will store both the password and the salt
   # It's Text and not String because String holds
   # 50 characters by default

@@ -11,6 +11,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'factory_girl'
 
 # require "/features/creating_links_spec.rb"
 # require "/features/viewing_links_spec.rb"
@@ -124,5 +125,10 @@ RSpec.configure do |config|
     config.after(:each) do
       DatabaseCleaner.clean
     end
+
+
+  RSpec.configure do |config|
+    config.include FactoryGirl::Syntax::Methods
+  end
 
 end
