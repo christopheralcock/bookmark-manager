@@ -14,11 +14,11 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    link = Link.new(url: params[:url],
-                    title: params[:title])
-    tags_array = (params[:tag]).split(" ")
-    tags_array.each do |x|
-      tag = Tag.create(name: x)
+    link = Link.new(url: params[:url], title: params[:title])
+    params[:tags] == "" ? params[:tags] = "untagged" : params[:tags] = params[:tags]
+    tags_array = (params[:tags]).split(" ")
+    tags_array.each do |word|
+      tag = Tag.create(name: word)
       link.tags << tag
       link.save
     end

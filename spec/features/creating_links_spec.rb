@@ -4,6 +4,7 @@ feature 'Creating links' do
     visit '/links/new'
     fill_in 'url',   with: 'http://www.zombo.com/'
     fill_in 'title', with: 'This is Zombocom'
+    fill_in 'tags', with: 'Welcome To Tag Town Baby'
     click_button 'Create link'
 
     # we expect to be redirected back to the links page
