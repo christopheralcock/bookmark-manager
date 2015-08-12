@@ -42,7 +42,6 @@ class BookmarkManager < Sinatra::Base
     erb :'links/new'
   end
 
-
   get '/tags/:name' do
     tag = Tag.all(name: params[:name])
     @links = tag ? tag.links : []
@@ -53,19 +52,13 @@ class BookmarkManager < Sinatra::Base
     erb :'users/new'
   end
 
-  # post '/users' do
-  #   User.create(email: params[:email],
-  #               password: params[:password])
-  #   redirect to('/links')
-  # end
-
   post '/users' do
     user = User.create(email: params[:email],
-                     password: params[:password])
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
-    redirect to('/')
+    redirect to('/links')
   end
-
 
 
 
