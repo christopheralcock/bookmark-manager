@@ -13,7 +13,7 @@ require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require_relative 'factories/user'
-require_relative 'helpers/session'
+require_relative 'features/helpers/session'
 
 
 # require "/features/creating_links_spec.rb"
