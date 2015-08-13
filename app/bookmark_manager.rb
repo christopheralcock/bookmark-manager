@@ -33,10 +33,7 @@ class BookmarkManager < Sinatra::Base
       link.tags << tag
       link.save
     end
-    # tag = Tag.create(name: params[:tag])
-    # link.tags << tag
-    # link.save
-    # Link.create(url: params[:url], title: params[:title])
+
     redirect to('/links')
   end
 
@@ -67,14 +64,10 @@ class BookmarkManager < Sinatra::Base
       # if it's not valid,
       # we'll render the sign up form again
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
-
-
-
-
 
   # start the server if ruby file executed directly
   run! if app_file == $0

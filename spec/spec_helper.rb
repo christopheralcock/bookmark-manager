@@ -12,6 +12,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
+require_relative 'factories/user'
 
 # require "/features/creating_links_spec.rb"
 # require "/features/viewing_links_spec.rb"
@@ -130,5 +131,23 @@ RSpec.configure do |config|
   RSpec.configure do |config|
     config.include FactoryGirl::Syntax::Methods
   end
+
+
+  RSpec.configure do |config|
+  # additional factory_girl configuration
+
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
+end
+
+
+#   FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+# FactoryGirl.find_definitions
 
 end
