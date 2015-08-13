@@ -1,14 +1,10 @@
 feature 'User sign in' do
 
- before :each do
-   user = build(:user)
- end
-
  scenario 'with correct credentials' do
+   user = build(:user)
    sign_in(user)
    expect(page).to have_content "Welcome, #{user.email}"
  end
-
 
  def sign_in(user)
    visit '/sessions/new'
