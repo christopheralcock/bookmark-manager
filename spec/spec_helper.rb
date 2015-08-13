@@ -13,6 +13,8 @@ require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require_relative 'factories/user'
+require_relative 'helpers/session'
+
 
 # require "/features/creating_links_spec.rb"
 # require "/features/viewing_links_spec.rb"
@@ -135,15 +137,20 @@ RSpec.configure do |config|
 
   RSpec.configure do |config|
   # additional factory_girl configuration
-
-  config.before(:suite) do
-    begin
-      DatabaseCleaner.start
-      FactoryGirl.lint
-    ensure
-      DatabaseCleaner.clean
+    config.before(:suite) do
+      begin
+        DatabaseCleaner.start
+        FactoryGirl.lint
+      ensure
+        DatabaseCleaner.clean
+      end
     end
   end
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
 end
 
 
