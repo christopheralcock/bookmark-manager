@@ -83,6 +83,10 @@ class BookmarkManager < Sinatra::Base
     erb :'/sessions/new'
   end
 
+  get '/password/reset' do
+    flash.now[:notice] = "Check your emails"
+    erb :'password/reset'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

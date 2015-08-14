@@ -11,6 +11,6 @@ feature 'User signs out' do
 
     click_button 'Sign out'
     expect(page).to have_content('Successful signout is yours!') # where does this message go?
-    expect(page).not_to have_content('Welcome, test@test.com')
+    expect(page).not_to have_content('Welcome, alice@example.com')
   end
 end

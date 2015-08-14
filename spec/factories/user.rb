@@ -1,8 +1,9 @@
 FactoryGirl.define do
 
-  factory :user do # FactoryGirl will assume that the parent model of a factory named ":user" is "User".
+  factory :user do
     email                 'alice@example.com'
     password              '12345678'
     password_confirmation '12345678'
   end
+  
 end

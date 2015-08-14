@@ -27,4 +27,7 @@ class User
     end
   end
 
+  def password_token
+    (0...50).map { ('A'..'Z').to_a[rand(26)] }.join
+  end
 end
