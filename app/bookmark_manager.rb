@@ -80,7 +80,7 @@ class BookmarkManager < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.now[:notice] = "Successful signout is yours!"
-    redirect to('/sessions/new')
+    redirect to('/sessions')
   end
 
   # start the server if ruby file executed directly
