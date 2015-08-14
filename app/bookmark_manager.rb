@@ -66,6 +66,11 @@ class BookmarkManager < Sinatra::Base
     erb :'sessions/new'
   end
 
+  post '/sessions/new' do
+    flash.now[:notice] = "Check your emails, pweeeetttty pweeeeeeeeeeease"
+    erb :'sessions/new'
+  end
+
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
@@ -83,10 +88,15 @@ class BookmarkManager < Sinatra::Base
     erb :'/sessions/new'
   end
 
-  get '/password/reset' do
-    flash.now[:notice] = "Check your emails"
-    erb :'password/reset'
+  get '/users/password/reset' do
+    erb :'users/password/reset'
   end
+
+  # post '/users/password/reset' do
+  #   flash.now[:notice] = "Check your emails"
+  #   erb :'users/password/reset'
+  # end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
